@@ -35,7 +35,7 @@ export default function Home() {
         item.id.startsWith("tt")
       );
       setMovie(onlyMovies as Movie[]);
-      console.log(movie);
+      console.log(onlyMovies);
     } catch (error) {
       console.error(error);
     }
@@ -44,6 +44,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center p-24">
       <div className="text-black flex gap-2">
+      <h1 className="text-white">Pesquisar filmes</h1>
         <input type="text" onChange={(e) => setMovieName(e.target.value)} />
         <button
           onClick={() => fetchMovies(movieName)}
@@ -59,6 +60,7 @@ export default function Home() {
             {item.l}
             {item.i && item.i.imageUrl && (
               <Image
+              className="w-auto"
                 width={160}
                 height={160}
                 alt={item.l}
